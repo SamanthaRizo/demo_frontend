@@ -13,7 +13,7 @@ function MenuPage() {
 
   return (
     <div>
-      <h2>Menú Noticias</h2>
+      <h2>Menú de Noticias</h2>
       {user && <p>Bienvenido, {user}!</p>}
       <ul>
         <li><a href="/listanoticias">Lista todas las noticias</a></li>
