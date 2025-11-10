@@ -1,4 +1,4 @@
-const apiBaseUrl = process.env.REACT_APP_API_BASE_URL || 'http://localhost:5000'; // Asegúrate de tener REACT_APP_API_BASE_URL en tu .env
+const apiBaseUrl = process.env.REACT_APP_API_BASE_URL || 'http://127.0.0.1:8000'; // Asegúrate de tener REACT_APP_API_BASE_URL en tu .env
 
 const handleResponse = async (response) => {
     if (!response.ok) {
@@ -8,45 +8,39 @@ const handleResponse = async (response) => {
     return response.json();
 };
 
-export const getAllPersonajes = async () => {
-    const response = await fetch(`${apiBaseUrl}/personajes`);
+export const getAllNoticias = async () => {
+    const response = await fetch(`${apiBaseUrl}/noticias`);
     return handleResponse(response);
 };
 
-export const getPersonajeById = async (id) => {
-    const response = await fetch(`${apiBaseUrl}/personajes/${id}`);
+export const getNoticiaById = async (id) => {
+    const response = await fetch(`${apiBaseUrl}/noticias/${id}`);
     return handleResponse(response);
 };
 
-export const createPersonaje = async (personaje) => {
-    const response = await fetch(`${apiBaseUrl}/personajes`, {
+export const createNoticia = async (noticia) => {
+    const response = await fetch(`${apiBaseUrl}/noticias`, {
         method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(personaje),
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(noticia),
     });
     return handleResponse(response);
 };
 
-export const updatePersonaje = async (id, personaje) => {
-    const response = await fetch(`${apiBaseUrl}/personajes/${id}`, {
+export const updateNoticia = async (id, noticia) => {
+    const response = await fetch(`${apiBaseUrl}/noticias/${id}`, {
         method: 'PUT',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(personaje),
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(noticia),
     });
     return handleResponse(response);
 };
 
-export const deletePersonaje = async (id) => {
-    const response = await fetch(`${apiBaseUrl}/personajes/${id}`, {
-        method: 'DELETE',
-    });
+export const deleteNoticia = async (id) => {
+    const response = await fetch(`${apiBaseUrl}/noticias/${id}`, { method: 'DELETE' });
     if (!response.ok) {
         const errorData = await response.json();
-        throw new Error(errorData.error || 'Error al eliminar el personaje');
+        throw new Error(errorData.error || 'Error al eliminar la noticia');
     }
-    return { message: 'Personaje eliminado exitosamente' };
+    return { message: 'Noticia eliminada exitosamente' };
 };
