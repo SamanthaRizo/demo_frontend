@@ -1,6 +1,19 @@
+# Integración backend y frontend
+Este proyecto es un frontend en React para consumir los servicios web de noticias financieras.
+Permitiendo:
+* Listar noticias
+* Crear nuevas noticias
+* Actualizar noticias existentes
+* Eliminar noticias
+* Manejo de sesión mediante autenticación de usuarios
+
+El proyecto utiliza React Router para navegación y Context API junto con cookies para mantener la sesión del usuario.
+
 # Pre-requisitos
 - Se requiere el servicio web del repositorio: EjemploWebServicesAppCompleta
 - Modifica el archivo .env.development para configurar la variable REACT_APP_API_BASE_URL a tus necesidades
+- Backend del proyecto de noticias corriendo en http://127.0.0.1:8000 (o ajusta en .env.development)
+- Node.js y npm instalados
 
 # En esta versión se implementa manejo de sesión a través de cookies
 Esta versión ya tiene persistencia de la sesión a través de la librería js-cookie (ver AuthContext.js)
@@ -15,19 +28,24 @@ El objetivo principal es permitir a los usuarios iniciar sesión y, si la autent
 Este ejemplo de proyecto de React sigue una estructura de componentes y utiliza el Context API para gestionar el estado de autenticación de manera global. A continuación, se describen los principales archivos y directorios:
 
 ```
-react-ejemplo-login/
+demo_frontend/
 ├── public/
-│   └── ... (archivos estáticos como index.html)
+│   └── index.html           # HTML base
 └── src/
-    ├── components/
-    │   ├── LoginPage.js        # Componente para la página de inicio de sesión
-    │   ├── MenuPage.js         # Componente para la página del menú protegido
-    │   └── PrivateRoute.js     # Componente para proteger rutas
+    ├── api.js               # Funciones para consumir la API
+    ├── App.js               # Componente raíz
+    ├── index.js             # Punto de entrada
+    ├── index.css            # Estilos globales
     ├── contexts/
-    │   └── AuthContext.js      # Contexto para gestionar la autenticación
-    ├── App.js                # Componente principal de la aplicación
-    └── index.js              # Punto de entrada de la aplicación
-    └── ... (otros archivos de configuración y estilos)
+    │   └── AuthContext.jsx  # Contexto para autenticación
+    └── components/
+        ├── LoginPage.jsx
+        ├── MenuPage.jsx
+        ├── PrivateRoute.jsx
+        ├── ListaNoticias.jsx
+        ├── CrearNoticia.jsx
+        ├── ActualizarNoticia.jsx
+        └── EliminarNoticia.jsx
 ```
 
 ## Componentes Principales
@@ -38,7 +56,12 @@ react-ejemplo-login/
         * `/login`: Muestra el componente `LoginPage`.
         * `/menu`: Muestra el componente `PrivateRoute` que, a su vez, renderiza `MenuPage` SOLO si el usuario está autenticado.
         * `/`: Redirige al usuario a la página de `/login`.
+        * /listanoticias: Lista todas las noticias (ListaNoticias.jsx).
+        * /crearnoticia: Formulario para agregar una noticia (CrearNoticia.jsx).
+        * /actualizarnoticia: Formulario para actualizar una noticia (ActualizarNoticia.jsx).
+        * /eliminarnoticia: Formulario para eliminar una noticia (EliminarNoticia.jsx).
     * 'Envuelve' las rutas con el `AuthProvider` para que todos los componentes puedan acceder al estado de autenticación.
+    * App.js
 
 2.  **`components/LoginPage.js`:**
     * Presenta un formulario con campos para el `username` y el `password`.
@@ -51,6 +74,11 @@ react-ejemplo-login/
     * Es una página protegida que muestra un menú con diferentes opciones.
     * Accede al estado del `user` desde el `AuthContext` para mostrar un mensaje de bienvenida al usuario autenticado.
     * Incluye un botón de "Logout" que llama a la función `logout` del `AuthContext` y redirige al usuario a la página de `/login`.
+    * Contiene enlaces a las páginas de gestión de noticias:
+      - Lista todas las noticias
+      - Crear noticia
+      - Actualizar noticia
+      - Eliminar noticia
 
 4.  **`components/PrivateRoute.js`:**
     * Es un componente que se utiliza para proteger rutas.
@@ -115,7 +143,11 @@ El `AuthContext` es fundamental para manejar el estado de autenticación en toda
    ```sh
    npm start
    ```
-
+3. Abre en tu navegador:
+   
+   ```sh
+   http://localhost:3000
+   ```
 
 ##  Tecnologías Utilizadas
 
@@ -125,6 +157,8 @@ El `AuthContext` es fundamental para manejar el estado de autenticación en toda
 * **`fetch` API:** API nativa de JavaScript para realizar peticiones HTTP al servicio web.
 * **JavaScript (ES6+):** El lenguaje de programación principal utilizado.
 * **JSX:** Extensión de sintaxis de JavaScript utilizada para escribir componentes React.
+* **js-cookie:** Para manejo de sesión.
+* **CSS básico:**
 
 ## Consideraciones para el Desarrollo
 
