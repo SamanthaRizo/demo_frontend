@@ -13,15 +13,15 @@ function MenuPage() {
 
   return (
     <div>
-      <h2>Menu</h2>
+      <h2>Menú Noticias</h2>
       {user && <p>Bienvenido, {user}!</p>}
       <ul>
-        <li><a href="/listapersonajes">Lista todos los personajes</a></li>
-        <li><a href="/crearpersonaje">Crear personaje</a></li>
-        <li><a href="/actualizarpersonaje">Actualizar personaje</a></li>
-        <li><a href="/eliminarpersonaje">Eliminar personaje</a></li>
+        <li><a href="/listanoticias">Lista todas las noticias</a></li>
+        <li><a href="/crearnoticia">Crear noticia</a></li>
+        <li><a href="/actualizarnoticia">Actualizar noticia</a></li>
+        <li><a href="/eliminarnoticia">Eliminar noticia</a></li>
       </ul>
-      <button onClick={handleLogout}>Logout</button>
+      <button onClick={handleLogout}>Cerrar sesión</button>
     </div>
   );
 }
