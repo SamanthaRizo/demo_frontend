@@ -8,6 +8,7 @@ const handleResponse = async (response) => {
     return response.json();
 };
 
+// Noticias
 export const getAllNoticias = async () => {
     const response = await fetch(`${apiBaseUrl}/noticias`);
     return handleResponse(response);
