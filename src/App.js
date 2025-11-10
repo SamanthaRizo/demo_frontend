@@ -4,10 +4,10 @@ import LoginPage from './components/LoginPage';
 import MenuPage from './components/MenuPage';
 import { AuthProvider } from './contexts/AuthContext';
 import PrivateRoute from './components/PrivateRoute';
-import ListaPersonajes from './components/ListaPersonajes';
-import CrearPersonaje from './components/CrearPersonaje';
-import ActualizarPersonaje from './components/ActualizarPersonaje';
-import EliminarPersonaje from './components/EliminarPersonaje';
+import ListaNoticias from './components/ListaNoticias';
+import CrearNoticia from './components/CrearNoticia';
+import ActualizarNoticia from './components/ActualizarNoticia';
+import EliminarNoticia from './components/EliminarNoticia';
 
 function App() {
   return (
@@ -16,10 +16,10 @@ function App() {
         <Routes>
           <Route path="/login" element={<LoginPage />} />
           <Route path="/menu" element={<PrivateRoute><MenuPage /></PrivateRoute>} />
-          <Route path="/listapersonajes" element={<PrivateRoute><ListaPersonajes /></PrivateRoute>} />
-          <Route path="/crearpersonaje" element={<PrivateRoute><CrearPersonaje /></PrivateRoute>} />
-          <Route path="/actualizarpersonaje" element={<PrivateRoute><ActualizarPersonaje /></PrivateRoute>} />
-          <Route path="/eliminarpersonaje" element={<PrivateRoute><EliminarPersonaje /></PrivateRoute>} />
+          <Route path="/listanoticias" element={<PrivateRoute><ListaNoticias /></PrivateRoute>} />
+          <Route path="/crearnoticia" element={<PrivateRoute><CrearNoticia /></PrivateRoute>} />
+          <Route path="/actualizarnoticia" element={<PrivateRoute><ActualizarNoticia /></PrivateRoute>} />
+          <Route path="/eliminarnoticia" element={<PrivateRoute><EliminarNoticia /></PrivateRoute>} />
           <Route path="/" element={<Navigate to="/login" />} />
         </Routes>
       </AuthProvider>
