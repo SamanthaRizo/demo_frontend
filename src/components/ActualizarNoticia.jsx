@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
 import { getNoticiaById, updateNoticia } from '../api';
-import { useNavigate } from 'react-router-dom';
 
 function ActualizarNoticia() {
   const [idActualizar, setIdActualizar] = useState('');
   const [noticia, setNoticia] = useState(null);
   const [mensaje, setMensaje] = useState('');
   const [error, setError] = useState('');
-  const navigate = useNavigate();
 
   const handleIdChange = (e) => {
     setIdActualizar(e.target.value);
@@ -32,7 +30,6 @@ function ActualizarNoticia() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!noticia) return;
-
     try {
       const data = await updateNoticia(idActualizar, noticia);
       setMensaje(data.mensaje);
@@ -46,10 +43,9 @@ function ActualizarNoticia() {
   return (
     <div className="container">
       <h2>Actualizar Noticia</h2>
-
       <div>
         <input type="number" placeholder="ID Noticia" value={idActualizar} onChange={handleIdChange} />
-        <button className="primary" onClick={buscarNoticia}>Buscar</button>
+        <button className="secondary" onClick={buscarNoticia}>Buscar</button>
       </div>
 
       {noticia && (
@@ -60,14 +56,13 @@ function ActualizarNoticia() {
           <input type="date" name="fecha_publicacion" value={noticia.fecha_publicacion || ''} onChange={handleInputChange} required />
           <input type="text" name="fuente" value={noticia.fuente || ''} onChange={handleInputChange} placeholder="Fuente" required />
           <input type="text" name="departamento" value={noticia.departamento || ''} onChange={handleInputChange} placeholder="Departamento" required />
-          <button type="submit" className="primary">Actualizar Noticia</button>
+          <button className="primary" type="submit">Actualizar Noticia</button>
+          <button className="secondary" type="button" onClick={() => window.history.back()}>Volver al menú</button>
         </form>
       )}
 
       {mensaje && <p style={{ color: 'green' }}>{mensaje}</p>}
       {error && <p style={{ color: 'red' }}>{error}</p>}
-
-      <button className="secondary" onClick={() => navigate('/menu')}>Volver al menú</button>
     </div>
   );
 }
