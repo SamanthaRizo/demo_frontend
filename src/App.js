@@ -1,11 +1,10 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
-
-import MenuPage from './components/MenuPage';
-import ListaNoticias from './components/ListaNoticias';
-import CrearNoticia from './components/CrearNoticia';
-import ActualizarNoticia from './components/ActualizarNoticia';
-import EliminarNoticia from './components/EliminarNoticia';
+import React from "react";
+import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
+import MenuPage from "./components/MenuPage";
+import ListaNoticias from "./components/ListaNoticias";
+import CrearNoticia from "./components/CrearNoticia";
+import ActualizarNoticia from "./components/ActualizarNoticia";
+import EliminarNoticia from "./components/EliminarNoticia";
 
 function App() {
   return (
@@ -23,4 +22,3 @@ function App() {
 }
 
 export default App;
-
