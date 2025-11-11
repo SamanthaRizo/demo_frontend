@@ -5,7 +5,6 @@ Permitiendo:
 * Crear nuevas noticias
 * Actualizar noticias existentes
 * Eliminar noticias
-* Manejo de sesión mediante autenticación de usuarios
 
 El proyecto utiliza React Router para navegación y Context API junto con cookies para mantener la sesión del usuario.
 
