@@ -5,6 +5,7 @@ import ListaNoticias from "./components/ListaNoticias";
 import CrearNoticia from "./components/CrearNoticia";
 import ActualizarNoticia from "./components/ActualizarNoticia";
 import EliminarNoticia from "./components/EliminarNoticia";
+import SwaggerUIPage from "./components/SwaggerUI";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/crearnoticia" element={<CrearNoticia />} />
         <Route path="/actualizarnoticia" element={<ActualizarNoticia />} />
         <Route path="/eliminarnoticia" element={<EliminarNoticia />} />
+        <Route path="/swagger" element={<SwaggerUIPage />} />
         <Route path="/" element={<Navigate to="/menu" />} />
       </Routes>
     </Router>
