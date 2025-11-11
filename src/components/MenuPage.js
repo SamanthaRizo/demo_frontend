@@ -10,11 +10,13 @@ function MenuPage() {
       <p>Bienvenido al panel de gestión de noticias</p>
 
       <ul className="menu-list">
-        <li><button className="primary" onClick={() => navigate('/listanoticias')}>Lista todas las noticias</button></li>
+        <li><button className="secondary" onClick={() => navigate('/listanoticias')}>Lista todas las noticias</button></li>
         <li><button className="primary" onClick={() => navigate('/crearnoticia')}>Crear noticia</button></li>
         <li><button className="primary" onClick={() => navigate('/actualizarnoticia')}>Actualizar noticia</button></li>
-        <li><button className="primary" onClick={() => navigate('/eliminarnoticia')}>Eliminar noticia</button></li>
+        <li><button className="danger" onClick={() => navigate('/eliminarnoticia')}>Eliminar noticia</button></li>
       </ul>
+
+      <button className="secondary" onClick={() => navigate('/')}>Volver al inicio</button>
     </div>
   );
 }
