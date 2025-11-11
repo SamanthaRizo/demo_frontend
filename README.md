@@ -1,5 +1,5 @@
 # Integración backend y frontend
-Este proyecto es un frontend en React para consumir los servicios web de noticias financieras.
+Este proyecto es un frontend en React para consumir los servicios web de noticias financieras usando las operaciones CRUD.
 Permitiendo:
 * Listar noticias
 * Crear nuevas noticias
@@ -7,6 +7,12 @@ Permitiendo:
 * Eliminar noticias
 
 El proyecto utiliza React Router para navegación y Context API junto con cookies para mantener la sesión del usuario.
+Y una instancia de MySQL hosteada en un codespace para hacer la integracion de forma remota (https://github.com/SamanthaRizo/demo_backend)
+
+# Objetivo
+Se presentara la implementacion de conexion de un FrontEnd con un Backend para el proyecto de NoticiasAPI,
+en el que usando una base de datos relacional MySQL remota, un documento de especificacion basado en OpenAPI para definir la interfaz,
+se muestra como todo conectado se puede usar para proveer un servicio para realizar las operaciones fundamentales CRUD.
 
 # Pre-requisitos
 - Se requiere el servicio web del repositorio: EjemploWebServicesAppCompleta
@@ -16,7 +22,6 @@ El proyecto utiliza React Router para navegación y Context API junto con cookie
 
 # En esta versión se implementa manejo de sesión a través de cookies
 Esta versión ya tiene persistencia de la sesión a través de la librería js-cookie (ver AuthContext.js)
-
 
 # En este ejemplo ¿Cómo funciona la autenticación de Usuarios con React?
 
@@ -45,6 +50,16 @@ demo_frontend/
         ├── CrearNoticia.jsx
         ├── ActualizarNoticia.jsx
         └── EliminarNoticia.jsx
+
+demo_backend/
+├── ejemplo.yaml
+├── README.md
+├── static/
+│   └── index.html
+└── web services/
+    ├── app.py
+    ├── noticias.yaml
+    └── ws.py
 ```
 
 ## Componentes Principales
