@@ -1,14 +1,12 @@
 import React, { useState } from 'react';
 import { createNoticia } from '../api';
-import { useNavigate } from 'react-router-dom';
 
 function CrearNoticia() {
   const [noticia, setNoticia] = useState({
-    titulo: '', resumen: '', contenido: '', fecha_publicacion: '', fuente: '', departamento: ''
+    id: '', titulo: '', resumen: '', contenido: '', fecha_publicacion: '', fuente: '', departamento: ''
   });
   const [mensaje, setMensaje] = useState('');
   const [error, setError] = useState('');
-  const navigate = useNavigate();
 
   const handleChange = (e) => setNoticia({ ...noticia, [e.target.name]: e.target.value });
 
@@ -18,7 +16,7 @@ function CrearNoticia() {
       const data = await createNoticia(noticia);
       setMensaje(data.mensaje);
       setError('');
-      setNoticia({ titulo: '', resumen: '', contenido: '', fecha_publicacion: '', fuente: '', departamento: '' });
+      setNoticia({ id: '', titulo: '', resumen: '', contenido: '', fecha_publicacion: '', fuente: '', departamento: '' });
     } catch (err) {
       setError(err.message);
       setMensaje('');
@@ -28,21 +26,20 @@ function CrearNoticia() {
   return (
     <div className="container">
       <h2>Crear Nueva Noticia</h2>
-
       <form onSubmit={handleSubmit}>
+        <input type="number" name="id" placeholder="ID" value={noticia.id} onChange={handleChange} required />
         <input type="text" name="titulo" placeholder="Título" value={noticia.titulo} onChange={handleChange} required />
         <input type="text" name="resumen" placeholder="Resumen" value={noticia.resumen} onChange={handleChange} required />
         <textarea name="contenido" placeholder="Contenido" value={noticia.contenido} onChange={handleChange} required />
         <input type="date" name="fecha_publicacion" value={noticia.fecha_publicacion} onChange={handleChange} required />
         <input type="text" name="fuente" placeholder="Fuente" value={noticia.fuente} onChange={handleChange} required />
         <input type="text" name="departamento" placeholder="Departamento" value={noticia.departamento} onChange={handleChange} required />
-        <button type="submit" className="primary">Crear Noticia</button>
+        <button className="primary" type="submit">Crear Noticia</button>
+        <button className="secondary" type="button" onClick={() => window.history.back()}>Volver al menú</button>
       </form>
 
       {mensaje && <p style={{ color: 'green' }}>{mensaje}</p>}
       {error && <p style={{ color: 'red' }}>{error}</p>}
-
-      <button className="secondary" onClick={() => navigate('/menu')}>Volver al menú</button>
     </div>
   );
 }
