@@ -5,7 +5,7 @@ function MenuPage() {
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    // Ya no hay autenticación, así que solo redirigimos al inicio o login
+    // Ya no hay autenticación, así que solo redirigimos al inicio
     navigate('/');
   };
 
@@ -23,11 +23,6 @@ function MenuPage() {
 
       <button onClick={handleLogout}>Volver al inicio</button>
     </div>
-  );
-}
-
-export default MenuPage;
-
   );
 }
 
