@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { getAllNoticias, deleteNoticia } from '../api';
-import { useNavigate } from 'react-router-dom';
 
 function ListaNoticias() {
   const [noticias, setNoticias] = useState([]);
-  const navigate = useNavigate();
 
   const cargarNoticias = async () => {
     try {
@@ -31,19 +29,15 @@ function ListaNoticias() {
   return (
     <div className="container">
       <h2>Noticias Financieras</h2>
-
-      {noticias.length === 0 && <p>No hay noticias disponibles.</p>}
-
       {noticias.map(n => (
         <div key={n.id} className="card">
           <h3>{n.titulo}</h3>
           <p>{n.resumen}</p>
-          <small>{n.fecha_publicacion}</small><br />
+          <small>{n.fecha_publicacion}</small><br/>
           <button className="danger" onClick={() => handleEliminar(n.id)}>Eliminar</button>
         </div>
       ))}
-
-      <button className="secondary" onClick={() => navigate('/menu')}>Volver al menú</button>
+      <button className="secondary" onClick={() => window.history.back()}>Volver al menú</button>
     </div>
   );
 }
