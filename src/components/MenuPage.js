@@ -6,19 +6,43 @@ function MenuPage() {
 
   return (
     <div className="container">
-      <h2>Menú Principal</h2>
-      <p>Bienvenido a la aplicación de gestión y análisis de noticias financieras.
-Este sistema integra información del mercado, noticias relevantes y herramientas básicas de análisis técnico para apoyar la toma de decisiones en empresas del S&P 500.
+      <h2>Menú de Noticias</h2>
+      <p>
+        Bienvenido al panel de gestión de noticias financieras. Este sistema permite realizar análisis técnico de empresas del S&P500 y análisis de sentimiento de noticias relacionadas, ayudando a identificar posibles tendencias de mercado basadas en indicadores como el "Golden Cross".
+      </p>
 
-Puedes administrar todas las noticias registradas y, además, consultar la documentación oficial del API para integrar el sistema con otras aplicaciones.</p>
+      <ul className="menu-list">
+        <li>
+          <button className="secondary" onClick={() => navigate("/listanoticias")}>
+            Lista todas las noticias
+          </button>
+        </li>
+        <li>
+          <button className="primary" onClick={() => navigate("/crearnoticia")}>
+            Crear noticia
+          </button>
+        </li>
+        <li>
+          <button className="primary" onClick={() => navigate("/actualizarnoticia")}>
+            Actualizar noticia
+          </button>
+        </li>
+        <li>
+          <button className="danger" onClick={() => navigate("/eliminarnoticia")}>
+            Eliminar noticia
+          </button>
+        </li>
+        <li>
+          <button className="info" onClick={() => navigate("/api")}>
+            API
+          </button>
+        </li>
+      </ul>
 
-      <div className="container">
-      <h2>Menú Principal</h2>
-      <button className="primary" onClick={() => navigate("/listanoticias")}>Lista de Noticias</button>
-      <button className="primary" onClick={() => navigate("/crearnoticia")}>Crear Noticia</button>
-      <button className="primary" onClick={() => navigate("/actualizarnoticia")}>Actualizar Noticia</button>
-      <button className="primary" onClick={() => navigate("/eliminarnoticia")}>Eliminar Noticia</button>
-      <button className="info" onClick={() => navigate("/api")}>API</button> {/* igual estilo */}
+      <h3>Propósito del sistema</h3>
+      <p>
+        El sistema está diseñado para usuarios con conocimientos en programación y finanzas, proporcionando análisis automático de datos financieros y noticias, facilitando la toma de decisiones basada en indicadores objetivos y análisis de sentimiento.
+      </p>
     </div>
   );
 }
