@@ -18,7 +18,7 @@ Puedes administrar todas las noticias registradas y, además, consultar la docum
       <button className="primary" onClick={() => navigate("/crearnoticia")}>Crear Noticia</button>
       <button className="primary" onClick={() => navigate("/actualizarnoticia")}>Actualizar Noticia</button>
       <button className="primary" onClick={() => navigate("/eliminarnoticia")}>Eliminar Noticia</button>
-      <button className="primary" onClick={() => navigate("/api")}>API</button> {/* igual estilo */}
+      <button className="info" onClick={() => navigate("/api")}>API</button> {/* igual estilo */}
     </div>
   );
 }
