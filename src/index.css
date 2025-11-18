@@ -92,8 +92,29 @@ button.danger:hover {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  align-items: flex-start; /* evita que los botones se estiren */
 }
 
 .menu-list li {
-  width: 100%;
+  width: auto; /* antes estaba 100%, ahora se ajusta al contenido */
+}
+
+button {
+  padding: 10px 20px;
+  margin: 0; /* ya tenemos gap en el contenedor */
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.2s;
+  display: inline-block; /* evita que se estire */
+}
+
+button.info {
+  background-color: #ff9800; /* naranja */
+  color: white;
+}
+
+button.info:hover {
+  background-color: #e68a00; /* naranja más oscuro al pasar el mouse */
 }
